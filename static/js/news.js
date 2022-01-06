@@ -10,21 +10,19 @@
 
         cacheElements() {
             this.$newsItems = document.querySelector('.container_Cards_News');
+            this.$newsItemsHome = document.querySelector('container_Cards_News');
         },
 
-         async newsApi() {
-            
-                try {
-                    const news_api = "https://www.pgm.gent/data/gentsefeesten/news.json";
-                    const response = await fetch(news_api);
-                    const data = await response.json();
-                    this.generateHTMLForNews(data);
-                } catch (error) {
-                    console.error(error);
-                }
-            
+        async newsApi() {
 
-            
+            try {
+                const news_api = "https://www.pgm.gent/data/gentsefeesten/news.json";
+                const response = await fetch(news_api);
+                const data = await response.json();
+                this.generateHTMLForNews(data);
+            } catch (error) {
+                console.error(error);
+            }
         },
 
         generateHTMLForNews(data) {
@@ -54,6 +52,7 @@
             }).join("");
 
             this.$newsItems.innerHTML = newsItems;
+            this.$newsItemsHome.innerHTML = newsItems;
         },
 
     };

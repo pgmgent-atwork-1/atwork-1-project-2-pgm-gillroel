@@ -3,20 +3,20 @@
     const app = {
         initialize() {
 
-            const params = new URLSearchParams(); 
- 
-// voeg type toe
-params.append('day', '19');
+            const params = new URLSearchParams();
 
- 
-// omzetten naar query string
-const query = params.toString(); // type=medium&size=2
- 
-// gebruiken in url -> zelf ? toevoegen!
-const url = '/dag.html?' + query;
+            // voeg type toe
+            params.append('day', '19');
 
-console.log("bla");
-console.log(url);
+
+            // omzetten naar query string
+            const query = params.toString(); // type=medium&size=2
+
+            // gebruiken in url -> zelf ? toevoegen!
+            const url = '/dag.html?' + query;
+
+            console.log("bla");
+            console.log(url);
 
 
         }

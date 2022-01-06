@@ -5,8 +5,8 @@
             this.cacheElements();
             this.programmeApi();
             this.categoryApi();
-            
-            
+
+
 
 
             this.dataProgramme = null;
@@ -17,7 +17,7 @@
         cacheElements() {
             this.$activities = document.querySelector('.cards_activities');
             this.$category = document.querySelector('.category_links');
-            
+
 
         },
 
@@ -26,7 +26,7 @@
                 const programme_api = 'https://www.pgm.gent/data/gentsefeesten/events_500.json';
                 const response = await fetch(programme_api);
                 this.dataProgramme = await response.json();
-                
+
 
                 this.getHtmlForProgramme();
                 return this.dataProgramme;
@@ -43,11 +43,11 @@
                 this.dataCategory = await response.json();
 
                 this.getHtmlForCategory();
-                
+
                 return this.dataCategory;
 
 
-                
+
             } catch (error) {
                 console.error(error);
             }
@@ -58,7 +58,7 @@
             const dataActivity = this.dataProgramme;
             const dataCategory = this.dataCategory;
 
-            console.log(dataCategory);
+            console.log(dataActivity);
 
             const html = dataCategory.map((category) => {
                 const activity = dataActivity.filter((activity) => activity.category[0] === category).map((activity) => {
@@ -83,10 +83,10 @@
                 </ul>
                 `
 
-            }).join(""); 
+            }).join("");
 
             this.$activities.innerHTML = html;
-            
+
             this.addEventListenerCards();
         },
 
@@ -114,8 +114,8 @@
                     const id = $card.dataset.id;
                     console.log(id);
 
-                },false)
-            } 
+                }, false)
+            }
         }
 
     }

@@ -22,9 +22,33 @@ li {
 
 /* begin header */
 
-/* .headerImage {
-    background: url(../img/Gentse-feesten-03header.jpg) 50% no-repeat;
-} */
+.headerImg {
+    
+    height: 75vh;
+    background-size: cover;
+    position: relative;
+} 
+
+.logoNav {
+    background: url(../img/Gentse-feesten-adapted-logo-with-date\ \(1\).svg) 40% center no-repeat;
+    height: 3rem;
+}
+
+.logo_gent {
+    background: url(../img/icons/selectionofoptimisedicons/gf-19.svg) 40% center no-repeat;
+    height: 5rem;
+}
+
+.nav-toggle-bar {
+    background: url(../img/icons/selectionofoptimisedicons/gf-menu-optimised.svg) 40% center no-repeat;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    fill: #fff;
+    background-color: #fff;
+}
 
 .days li {
     background-color: #000;
@@ -209,9 +233,10 @@ footer {
 }
 
 /* cards news */
-section.container_Cards_News img {
+.container_News img {
     width: 100%;
 }
+
 
 .cards__News {
     margin-bottom: 2rem;
@@ -229,8 +254,18 @@ section.container_Cards_News img {
     padding: 1rem 0rem;
 }
 
-.cards__News p {
-    padding-bottom: 1rem;
+.img_news p {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    background-color: #fff;
+    padding: 1.2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.img_news {
+    position: relative;
 }
 
 .img_date p {
@@ -373,11 +408,15 @@ input#search {
     margin-bottom: 0.5rem;
 }
 
+.item a:hover {
+    text-shadow: #e9e9e9;
+}
+
 .item a {
     color: #000;
 }
 
-.events_organisation h2 {
+.events_organization h2 {
     margin-bottom: 1rem;
 }
 
@@ -388,9 +427,22 @@ input#search {
     margin-bottom: 2rem;
 }
 
+.cards_events li:hover {
+    background: #e9e9e9;
+    color: #000;
+    transition: all 0.4s ease;
+}
+
+
+
 .cards_events a {
     color: #fff;
     text-decoration: none;
+}
+
+.cards_events a:hover {
+    color: #000;
+    transition: all 0.4s ease;
 }
 
 .cards_events p {
