@@ -5,18 +5,21 @@
             this.cacheElements();
             this.programmeApi();
             this.categoryApi();
+            this.addEventListener();
 
 
 
 
             this.dataProgramme = null;
             this.dataCategory = null;
+            this.dataId = null;
 
         },
 
         cacheElements() {
             this.$activities = document.querySelector('.cards_activities');
             this.$category = document.querySelector('.category_links');
+            this.$detailPage = document.querySelector('.detail_page');
 
 
         },
@@ -27,8 +30,8 @@
                 const response = await fetch(programme_api);
                 this.dataProgramme = await response.json();
 
-
                 this.getHtmlForProgramme();
+
                 return this.dataProgramme;
 
             } catch (error) {
@@ -46,8 +49,6 @@
 
                 return this.dataCategory;
 
-
-
             } catch (error) {
                 console.error(error);
             }
@@ -58,23 +59,45 @@
             const dataActivity = this.dataProgramme;
             const dataCategory = this.dataCategory;
 
+
             console.log(dataActivity);
 
+            const params = new URLSearchParams(window.location.search);
+            const days = params.get('day');
+            console.log(days);
+
             const html = dataCategory.map((category) => {
-                const activity = dataActivity.filter((activity) => activity.category[0] === category).map((activity) => {
-                    return `<li class="cards" data-id="${activity.id}">
-                    <img src="static/img/f295f30dd075ebb5eb4dc8d4a34748a1.PNG"
-                        alt="${activity.title}">
-                    <div class="innerContent">
-                        <div class="date">
-                            <p> 
-                                ${activity.start}
-                            </p>
-                        </div>
-                        <h2>${activity.title}</h2>
-                        <p>${activity.location}</p>
+                const filterday = dataActivity.filter((day) => day.day === days);
+                const activity = filterday.filter((activity) => activity.category[0] === category).map((activity) => {
+                    return `
+
+                    
+                    <li class="cards" data-id="${activity.id} >
+
+                    <a href="evenementen/detail.html?activity=${activity.slug}"></a>
+                    <a href="evenementen/detail.html?activity=${activity.slug}">
+                    
+                    
+                    <img src="${activity.image ? activity.image.thumb : 'static/img/placeholderBig.png'}"
+                                                                alt="${activity.title}">
+                                                                
+                                                                
+                                                            <div class="innerContent">
+                                                                <div class="date">
+                                                                    <p>
+                                                                        ${activity.start}
+                                                                    </p>
+                                                                </div>
+                                                                <h2>${activity.title}</h2>
+                                                                <p>${activity.location}</p>
+                
+                
                     </div>
-                </li>`
+                    </a>
+                </li>
+                `
+
+
                 }).join("");
 
                 return ` <h2 id="${category}">${category}</h2> 
@@ -87,7 +110,7 @@
 
             this.$activities.innerHTML = html;
 
-            this.addEventListenerCards();
+            
         },
 
         getHtmlForCategory() {
@@ -107,16 +130,19 @@
 
         },
 
-        addEventListenerCards() {
-            const $cards = document.querySelectorAll('.cards');
-            for (const $card of $cards) {
-                $card.addEventListener('click', () => {
-                    const id = $card.dataset.id;
-                    console.log(id);
+        addEventListener() {
 
-                }, false)
-            }
-        }
+            const $raster = document.querySelector('.raster');
+
+            $raster.addEventListener('click', () => {
+                const $switchClassName = document.querySelector('.cards_activities');
+
+                $switchClassName.classList.toggle('cards_events');
+
+            }, false);
+        },
+
+
 
     }
 

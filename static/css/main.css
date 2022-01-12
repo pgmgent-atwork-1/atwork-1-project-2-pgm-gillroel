@@ -23,11 +23,18 @@ li {
 /* begin header */
 
 .headerImg {
-    
+
     height: 75vh;
     background-size: cover;
     position: relative;
-} 
+}
+
+.nav-toggle svg{
+    width: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+}
 
 .logoNav {
     background: url(../img/Gentse-feesten-adapted-logo-with-date\ \(1\).svg) 40% center no-repeat;
@@ -39,17 +46,6 @@ li {
     height: 5rem;
 }
 
-.nav-toggle-bar {
-    background: url(../img/icons/selectionofoptimisedicons/gf-menu-optimised.svg) 40% center no-repeat;
-    height: 3rem;
-    width: 3rem;
-    position: absolute;
-    right: 1rem;
-    top: 2rem;
-    fill: #fff;
-    background-color: #fff;
-}
-
 .days li {
     background-color: #000;
     color: #fff;
@@ -57,6 +53,11 @@ li {
     padding-bottom: 1.5rem;
     list-style: none;
     width: 20%;
+}
+
+.days a {
+    color: #fff;
+    text-decoration: none;
 }
 
 .days {
@@ -72,6 +73,32 @@ li {
 .day_long {
     font-size: 0.8rem;
 }
+
+
+
+ul.nav {
+    position: absolute;
+    top: 5rem;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+}
+
+ul.nav.show {
+    left: 0;
+}
+
+ul.nav li {
+    
+    padding: 1rem;
+}
+
+ul.nav a {
+    color: #fff;
+}
+
+
 
 
 /* end header */
@@ -105,13 +132,19 @@ footer {
     background-color: #000;
     width: 12rem;
     max-width: 100%;
-    margin-bottom: 7rem;
-    margin: 0 auto;
+    margin: 1rem;
+    padding: 1.8rem;
+}
+
+@media screen and (min-width: 48rem) {
+    .logoFooter {
+        width: 18rem;
+    }
 }
 
 .logoFooter img {
-    width: 8rem;
-    max-width: 100%;
+    width: 9rem;
+    
 }
 
 @media screen and (min-width: 48rem) {
@@ -122,7 +155,7 @@ footer {
 
 
 .socialsContainer {
-    margin-top: 11rem;
+    margin-top: 7rem;
     margin-left: 2rem;
 }
 
@@ -193,6 +226,7 @@ footer {
 .cards {
     position: relative;
     margin-bottom: 10rem;
+    padding-left: 1rem;
 }
 
 .cards h2 {
@@ -203,6 +237,34 @@ footer {
 
 .cards img {
     width: 100%;
+}
+
+.cards_activities ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 1rem);
+}
+
+.cards_activities li {
+    flex-shrink: 1;
+    flex-basis: 100%;
+}
+
+@media screen and (min-width: 50rem) {
+    .cards_activities li {
+        
+        flex-basis: calc(100%/2 - 1rem);
+        max-width: calc(100%/2 - 1rem);
+    }
+}
+
+@media screen and (min-width: 64rem) {
+    .cards_activities li {
+        
+flex-basis: calc(100%/3 - 1rem);
+        
+max-width: calc(100%/3 - 1rem);
+    }
 }
 
 .date {
@@ -264,26 +326,56 @@ footer {
     font-size: 1.1rem;
 }
 
+@media (min-width: 64rem) {
+    .img_news p {
+        transform: rotate(270deg) translateX(50%);
+        top: 50%;
+        padding: 1rem 2rem;
+        left: -20px;
+        bottom: auto;
+    }
+
+}
+
+
+
 .img_news {
     position: relative;
+}
+
+.img_news img {
+    width: 100%;
 }
 
 .img_date p {
     padding-bottom: 2rem;
 }
 
+.text_news {
+    width: 100%;
+}
+
+
+@media (min-width: 64rem) {
+    .text_news {
+        padding-left: 3rem;
+    }
+}
 
 .arrow_right {
     background: url(../img/icons/arrow-right.svg) no-repeat;
     width: 22px;
     height: 20px;
     background-size: cover;
+    margin-top: 1rem;
 }
 
 .link_News {
     border: 2px solid #000;
     text-align: center;
     font-size: 1.1rem;
+    max-width: 21.25rem;
+    margin-left: 0;
 }
 
 .link_News:hover {
@@ -451,4 +543,25 @@ input#search {
 
 .cards_events h3 {
     padding-bottom: 0.8rem;
+}
+
+
+/* buttons switch raster to list */
+
+.buttons_switch ul {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.raster {
+    background: url(../img/icons/selectionofoptimisedicons/grid-optimised.svg) 40% center no-repeat;
+    height: 2rem;
+    width: 2rem;
+}
+
+.list {
+    background: url(../img/icons/selectionofoptimisedicons/grid\ optimised.svg) 40% center no-repeat;
+    height: 2rem;
+    width: 2rem;
 }
