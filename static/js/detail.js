@@ -49,34 +49,48 @@
             this.organizer = activity.organizer;
 
 
+
+
             function categories(categories) {
                 return categories.map((category) => {
                     return `
                     <div class="item"><a
                     href="https://gf20.qa.stad.gent/nl/day/17/category#${category}">
-                    Concerten > ${category}</a></div>
-                    </div>`;
+                    Concerten > ${category}</a></div>`;
                 }).join("");
             }
 
+            function website(url) {
+                if(url === null) {
+                    return "";
 
+                }else {
 
+                    return  `
+                <div class="links">
+                    <div class="label">Website:</div>
+                    <div class="items">
+                        <div class="item"><a href="${url}">${url}</a></div>
+                    </div>
+                </div>
+                    `           
+
+                }
+            }
             const html = `
 
                 <h1>${activity.title}</h1>
             <h3>${activity.day_of_week} ${activity.day} juli - ${activity.start} u.</h3>
+
+            <div class="detailActivity">
             <img src="${activity.image ? activity.image.thumb : 'static/img/placeholderBig.png'}" alt="${activity.title}">
+            <div class="detailContent">
             <p>
             ${activity.description ? activity.description : " "}
             </p>
             
-            
-            <div class="links">
-                <div class="label">Website:</div>
-                <div class="items">
-                    <div class="item"><a href="${activity.url}">${activity.url}</a></div>
-                </div>
-            </div>
+            ${website(activity.url)}
+
 
             <div class="links">
             <div class="label">Organisator:</div>
@@ -90,12 +104,12 @@
         <div class="items">
             ${categories(activity.category)}
     </div>
+    </div>
 
         `;
 
 
             this.$detailActivity.innerHTML = html;
-            console.log(this.organizer)
             this.getHtmlForEventsOrganization();
 
 
@@ -115,20 +129,25 @@
                 let html = '<div class="cards_events"><ul>';
                 for (let i = 0; i < filter.length; i++) {
                     const organizer = filter[i];
-
                     html += `                    
-            <li>
-                <a
-                    href="evenementen/detail.html?activity=${organizer.slug}">
-                    <p>${organizer.start}</p>
-                    <h3>${organizer.title}</h3>
-                    <p>${organizer.location}</p>
-                </a>
-            </li>`
-                }
-
-                html += '</ul> </div>'
-                this.$organization.innerHTML = html;
+                    <li>
+                        <a
+                            href="evenementen/detail.html?activity=${organizer.slug}">
+                            <p>${organizer.start}</p>
+                            <h3>${organizer.title}</h3>
+                            <p>${organizer.location}</p>
+                        </a>
+                    </li>`
+                        }
+        
+                        html += `</ul>
+                        </div>
+                        <div class="link_News lay_out">
+                            <p>Alle evenementen van deze organisator</p> 
+                        </div>`
+        
+        
+                        this.$organization.innerHTML = html;
 
             } else {
 

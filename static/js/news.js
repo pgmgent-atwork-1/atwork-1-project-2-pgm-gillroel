@@ -38,6 +38,7 @@
                 return `
             <div class="cards__News">
             <div class="img_news">
+            <a href="evenementen/detailNews.html?news=${item.title}">
                 <img src="https://www.pgm.gent/data/gentsefeesten/${item.picture.large}" alt="${item.title}">
                     <p>${getDate(item.publishedAt)}</p>
                 </div>
@@ -45,6 +46,7 @@
                 <h3>${item.title}</h3>
                 <p>${item.synopsis}</p>
                 <div class="arrow_right"></div>
+                </a>
                 </div>
             </div>
 
@@ -52,7 +54,7 @@
             }).join("");
 
             this.$newsItems.innerHTML = newsItems;
-            this.$newsItemsHome.innerHTML = newsItems;
+            
         },
 
     };
