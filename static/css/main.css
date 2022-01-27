@@ -16,7 +16,7 @@
 
 .lay_out {
     width: 100%;
-    max-width: 60rem;
+    max-width: 70rem;
     margin: 0 auto;
     padding: 1.5rem 2rem;
 }
@@ -37,20 +37,17 @@ header {
 
 }
 
-/* 
-@media screen and (min-width: 80rem) {
-    .headerContent {
-        position: relative;
-        max-width: 80rem;
-        margin: 0 auto;
-        padding: 0 1.2rem;
-    }
-} */
-
-
 .headerImg {
-    height: 18vh;
+    height: 12vh;
     position: relative;
+}
+
+@media screen and (min-width: 64rem) {
+    .headerImg {
+        height: 18vh;
+
+    }
+
 }
 
 .headerImage {
@@ -642,6 +639,7 @@ footer {
 @media (min-width: 64rem) {
     .text_news {
         padding-left: 3rem;
+        width: 60%;
     }
 }
 

@@ -75,7 +75,7 @@
 
         async programmeApi() {
             try {
-                const programme_api = 'https://www.pgm.gent/data/gentsefeesten/events_500.json';
+                const programme_api = ' https://www.pgm.gent/data/gentsefeesten/events.json';
                 const response = await fetch(programme_api);
                 this.dataProgramme = await response.json();
 
